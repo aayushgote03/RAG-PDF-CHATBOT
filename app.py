@@ -27,7 +27,7 @@ with st.sidebar:
 
 # --- PAGE CONFIG ---
 st.set_page_config(page_title="RAG Chatbot", page_icon="🤖")
-st.title("🤖 Company Policy AI Assistant")
+st.title("🤖 PDF AI Assistant")
 
 # --- SIDEBAR: SETTINGS & INGEST ---
 with st.sidebar:

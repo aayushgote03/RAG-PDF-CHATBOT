@@ -1,4 +1,4 @@
-from langchain_ollama import ChatOllama
+from langchain_groq import ChatGroq
 from langchain_core.prompts import PromptTemplate
 from langchain_classic.chains import RetrievalQA
 from langchain_community.vectorstores import FAISS
@@ -36,11 +36,12 @@ def get_qa_chain(callback_handler=None):
 
     # 3. Load Local LLM
     print(f"Loading Local {LLM_MODEL_NAME} via Ollama...")
-    llm = ChatOllama(
-        model=LLM_MODEL_NAME, 
+    llm = ChatGroq(
+        model="llama-3.1-8b-instant",  # Groq's version of Llama 3
         temperature=0,
-        streaming=True,
-        callbacks=callbacks  # <--- Pass the callbacks here
+        api_key="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", # We will set this securely later
+        callbacks=[callback_handler] if callback_handler else [],
+        streaming=True
     )
 
     # 4. Define Prompt
